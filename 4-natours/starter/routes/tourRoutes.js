@@ -5,6 +5,12 @@ const reviewRouter = require('./reviewRoutes');
 
 const router = express.Router();
 
+router
+  .route('/tours-within/:distance/center/:latlng/unit/:unit')
+  .get(tourController.getToursWithin);
+
+router.route('/distances/:latlng/unit/:unit').get(tourController.getDistances);
+
 router.use('/:tourId/reviews', reviewRouter);
 // router.param('id', tourController.checkID);
 router
